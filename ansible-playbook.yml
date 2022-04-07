@@ -27,7 +27,7 @@
 
     - name: copy the proxypass file
       copy:
-        src: "{{ WORKSPACE }}/proxypass.conf"
+        src: "{{ v_roles }}/proxypass.conf"
         dest: /etc/httpd/conf.d/proxypass.conf
         owner: root
         group: root
