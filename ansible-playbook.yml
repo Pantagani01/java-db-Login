@@ -80,7 +80,7 @@
     - name: copy the war file
       aws_s3:
         bucket: ansible-bkt
-        object: sp##2.0.war
+        object: target/sp##2.0.war
         dest: /etc/tomcat/webapps/sp##2.0.war
         mode: get
       tags: copy-war
