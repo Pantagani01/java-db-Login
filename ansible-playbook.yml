@@ -1,6 +1,7 @@
 ---
 - name: Play 1 - Run Roles for misl softwares,Apache & Tomcat
   hosts: webservers
+  sudo: yes
   become: yes
   vars:
     v_role_path: "{{ WORKSPACE }}/roles"
