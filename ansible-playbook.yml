@@ -79,9 +79,9 @@
 
     - name: copy the war file
       aws_s3:
-        bucket: artifactory-sagar-04apr
-        object: login##1.0.war
-        dest: /etc/tomcat/webapps/login##1.0.war
+        bucket: ansible-bkt
+        object: sp##2.0.war
+        dest: /etc/tomcat/webapps/sp##2.0.war
         mode: get
       tags: copy-war
 
