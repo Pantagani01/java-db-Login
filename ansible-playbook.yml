@@ -3,7 +3,7 @@
   hosts: webservers
   become: yes
   vars:
-    v_role_path: "{{ WORKSPACE }}/roles"
+    v_role_path: "{{ v_roles }}/roles"
   roles:
     - "{{ v_role_path }}/misl"
     - "{{ v_role_path }}/apache"
@@ -20,14 +20,14 @@
 
     - name: "code copy"
       git:
-        repo: 'https://github.com/Pantagani01/learnwithprojects.com.git'
+        repo: 'https://github.com/mailrahulsre/learnwithprojects.com.git'
         dest: /var/www/html
         version: master
         force: yes
 
     - name: copy the proxypass file
       copy:
-        src: "{{ WORKSPACE }}/proxypass.conf"
+        src: "{{ v_roles }}/proxypass.conf"
         dest: /etc/httpd/conf.d/proxypass.conf
         owner: root
         group: root
@@ -79,9 +79,9 @@
 
     - name: copy the war file
       aws_s3:
-        bucket: ansible-bkt
-        object: target/sp##2.0.war
-        dest: /etc/tomcat/webapps/sp##2.0.war
+        bucket: artifactory-sagar-04apr
+        object: login##1.0.war
+        dest: /etc/tomcat/webapps/login##1.0.war
         mode: get
       tags: copy-war
 
